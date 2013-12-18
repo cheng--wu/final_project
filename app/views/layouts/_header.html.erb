@@ -1,0 +1,21 @@
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "BocheBlog", '/', class: "brand" %>
+      <nav>
+
+        <div class="nav pull-right">
+          
+        
+        <% if signed_in? %>
+        <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+	<%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-primary" %>
+        <%else %>
+        <a href="/signup" class="btn btn-primary">Sign up</a>
+        <%end %>
+      
+    </div>
+      </nav>
+    </div>
+  </div>
+</header>

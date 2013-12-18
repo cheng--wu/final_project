@@ -1,0 +1,92 @@
+<style type="text/css">
+   body { background-color: #D8D8D8; }
+  #div1{background-color:#f5f5f5;padding:40px;width:300px;}
+</style>
+
+
+
+<h1></h1>
+
+
+    <div class="btn-group">
+    <button class="btn btn-info">Home</button>
+    <button class="btn btn-info">About</button>
+    <button class="btn btn-info">Terms</button>
+     <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+            English
+            <span class="caret"></span>
+    </a>
+            <ul class="dropdown-menu">
+            <!-- dropdown menu links -->
+            </ul>
+    </div>
+
+<p></p>
+
+      <hr>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/post_form' %>
+      </section>
+    </aside>
+  </div>  
+<% else %>
+      <div class="jumbotron">
+        <FONT size = "20">Hello, welcome to the BocheBlog!</FONT>
+        <p></p>
+        <FONT size = "20"></FONT>
+        <p></p>
+        <p class="lead">This app provides the easy way to write blog, record your thinking
+        and also post photos.</p>
+        <div class="row">
+         <div class="span3 offset4">
+         <a href="/signup"  class="btn btn-large btn-primary" data-loading-text="Log IN" button style="background-color:5686E6" ><FONT COLOR="#FFF">Sign up today!</FONT></a>
+        </div>
+      </div>
+     </div>
+
+      <hr>
+
+<p></p>
+
+    <div class="row">
+         <div class="span8 offset1">
+            <h3>Member goes here</h3>
+         </div>
+    </div>
+
+<div class="row">
+    <div class="span8" id="div1">
+
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    </div>
+
+    <div class="span4">
+    <img src="images/rails.png" width="400" height="228"> </img>
+    <img src="http://www.trada.com/wp-content/uploads/2012/04/sucessful-blog.jpeg",  width="300" , height="300" class="img-circle"> </img>
+    
+    </div>
+
+</div>
+<%end %>
+    <hr>
+    <div class="footer">
+        <p>&copy; BocheBlog 2013</p>
+    </div>
+    </hr>
+

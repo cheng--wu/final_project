@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<%= @user.name %> </p> <%= @user.email %> 
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Hello everyone!</title>
+    <link type="text/css" rel="stylesheet/less" href="less/style.less">
+    <link type="text/css" rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+    <script type="text/javascript" src="js/less.js"></script>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+</head>
+<style type="text/css">
+#div1 {background-color: #87ceeb;padding:40px;width:200px;}
+#div2{background-color: #f5f5f5;
+    padding:40px;
+    width:600px;   
+margin-left: 50px;}
+
+</style>
+<body>
+<ul class='nav nav-tabs' id='tab'>
+  <li class="active"><a href="#Comment" data-toggle="tab">Comment</a></li>
+  <li><a href="#Profile" data-toggle="tab">Profile</a></li>
+  <li><a href="#Album" data-toggle="tab">Album</a></li>
+  <li><a href="#History" data-toggle="tab">History</a></li>
+</ul>
+ <div class="tab-content">
+    <div class='tab-pane active' id='Comment'>
+  
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            
+            <div class="span2" id="div1">
+                
+                <%= image_tag current_user.image_url if current_user.image? %>
+            <p></p>
+                <p></p>
+                <p></p>
+                <font>Name:</font> <%= @user.name %>
+                <p></p>
+                <font>Condition:</font> Online<%= %>
+                
+        </div>
+        
+        
+         <div class="span6" id="div2">
+                 <%= render 'shared/post_form' %>
+             <p></p>
+                    I had so much fun with doing 
+                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        Select a activity
+                    <span class="caret"></span>
+                </a>
+            <ul class="dropdown-menu">
+            </ul>
+            <button type="submit" class="btn btn-success">Submit</button>
+
+
+            <table class="table table-bordered">
+            <hr>
+                    <% if @user.posts.any? %>
+                        <ol class="microposts">
+                            <%= render @posts %>
+                        </ol>
+                    <% end %>
+
+            </hr>
+         </table>
+         </div>
+
+    </div>
+    </div>
+  </div>
+
+
+
+  <div class='tab-pane' id='Album'>
+  <div class="container-fluid">
+        <div class="row-fluid">
+            
+            <div class="span2" id="div1">
+                
+                
+            <p></p>
+                <p></p>
+                <p></p>
+                <font>Name:</font> <%= @user.name %>
+                <p></p>
+                <font>Condition:</font>  online <%= @user.email %>
+                
+        </div>
+        
+        
+         <div class="span6" id="div2">
+                 <legend>Album</legend>
+         </div>
+
+    </div>
+    </div>
+  
+  </div>
+
+  <div class='tab-pane' id='Profile'>
+  <div class="container-fluid">
+        <div class="row-fluid">
+            
+            <div class="span2" id="div1">
+                
+                
+            <p></p>
+                <p></p>
+                <p></p>
+                <font>Name:</font> <%= @user.name %>
+                <p></p>
+                <font>Condition:</font> Online<%= @user.email %>
+                
+        </div>
+        
+        
+         <div class="span6" id="div2">
+                 <legend>Profile</legend>
+         </div>
+
+    </div>
+    </div>
+  
+  </div>
+</div>
+</body>
+</html>

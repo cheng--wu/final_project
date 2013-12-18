@@ -1,0 +1,32 @@
+<style type="text/css">
+   body { background-color: #D8D8D8; }
+   #div1{margin-left:180px;}
+   #div2{background-color: #f5f5f5;padding:40px;}
+</style>
+<h1></h1>
+
+    <div class="span6", id="div2">
+    <%= form_for(@user) do |f| %>
+
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+    </div>
+
+        </div>
+   
+        </form>
+    </div>
